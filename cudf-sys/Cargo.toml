@@ -1,0 +1,19 @@
+[package]
+name = "cudf-sys"
+version = "0.0.0+25.08.00"
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description.workspace = true
+readme.workspace = true
+repository.workspace = true
+documentation.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+cxx = "1.0.185"
+
+[build-dependencies]
+cxx-build = "1.0.185"

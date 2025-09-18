@@ -1,0 +1,37 @@
+[workspace.package]
+authors = ["Matthijs Brobbel <m1brobbel@gmail.com>"]
+edition = "2024"
+rust-version = "1.85.1"
+description = "GPU dataframes using cuDF"
+readme = "README.md"
+repository = "https://github.com/mbrobbel/cudf-rs"
+documentation = "http://docs.rs/cudf/"
+license = "Apache-2.0"
+keywords = ["GPU", "Dataframe", "Arrow"]
+categories = []
+
+[workspace]
+members = ["cudf-sys"]
+
+[package]
+name = "cudf"
+version = "0.0.0+25.08.00"
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description.workspace = true
+readme.workspace = true
+repository.workspace = true
+documentation.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = []
+
+[dependencies]
+cudf-sys = { path = "cudf-sys" }

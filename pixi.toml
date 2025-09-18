@@ -1,0 +1,15 @@
+[project]
+name = "cudf-rs"
+channels = ["rapidsai", "nvidia", "conda-forge"]
+platforms = ["linux-64", "linux-aarch64"]
+
+[system-requirements]
+cuda = "12.9"
+
+[dependencies]
+cuda-crt = "12.9.*"
+cuda-cudart-dev = "12.9.*"
+cxx-compiler = "*"
+libcudf = "25.08.00.*"
+libcurl = "*"
+rust = "*"
