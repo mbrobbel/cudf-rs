@@ -5,15 +5,20 @@ fn main() {
     println!("cargo:rustc-link-lib=rmm");
     println!("cargo:rustc-link-lib=cudart");
 
+    let (bridge, cpp) = (
+        ["src/column.rs", "src/lib.rs", "src/table.rs"],
+        ["cpp/column.cpp", "cpp/lib.cpp", "cpp/table.cpp"],
+    );
+
     let prefix = std::path::PathBuf::from(env::var("CONDA_PREFIX").unwrap_or_default());
-    cxx_build::bridge("src/lib.rs")
+    cxx_build::bridges(bridge)
         .include("include")
         .include(prefix.join(format!(
             "targets/{}-linux/include",
             env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default()
         )))
         .include(prefix.join("targets/sbsa-linux/include"))
-        .file("cpp/cudf_rs.cpp")
+        .files(cpp)
         // https://github.com/rapidsai/rmm/blob/29dd32302eb7c3e16fb837a1cfe4baac98071512/cpp/CMakeLists.txt#L115
         .flag("-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE")
         .flag("-std=c++20")

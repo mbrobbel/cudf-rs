@@ -1,21 +1,44 @@
-#[cxx::bridge(namespace = "cudf_rs")]
+#[cxx::bridge]
 mod ffi {
-    unsafe extern "C++" {
-        include!("cudf-sys/include/cudf_rs.hpp");
-
-        #[namespace = "cudf"]
-        type table_view;
-
-        type Table;
-        fn num_rows(self: &Table) -> i32;
-        fn num_columns(self: &Table) -> i32;
-        fn alloc_size(self: &Table) -> Result<i32>;
-        fn view(self: &Table) -> Result<&table_view>;
-        fn read_csv_to_table(path: &str) -> Result<UniquePtr<Table>>;
+    #[namespace = "cudf"]
+    #[repr(i32)]
+    enum TypeId {
+        EMPTY,
+        INT8,
+        INT16,
+        INT32,
+        INT64,
+        UINT8,
+        UINT16,
+        UINT32,
+        UINT64,
+        FLOAT32,
+        FLOAT64,
+        BOOL8,
+        TIMESTAMP_DAYS,
+        TIMESTAMP_SECONDS,
+        TIMESTAMP_MILLISECONDS,
+        TIMESTAMP_MICROSECONDS,
+        TIMESTAMP_NANOSECONDS,
+        DURATION_DAYS,
+        DURATION_SECONDS,
+        DURATION_MILLISECONDS,
+        DURATION_MICROSECONDS,
+        DURATION_NANOSECONDS,
+        DICTIONARY32,
+        STRING,
+        LIST,
+        DECIMAL32,
+        DECIMAL64,
+        DECIMAL128,
+        STRUCT,
+        NUM_TYPE_IDS,
     }
 }
 
-unsafe impl Send for ffi::Table {}
-unsafe impl Sync for ffi::Table {}
-
 pub use ffi::*;
+
+pub mod column;
+pub mod table;
+
+pub use cxx::{Exception, UniquePtr};
