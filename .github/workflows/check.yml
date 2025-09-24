@@ -19,4 +19,6 @@ jobs:
         with:
           pixi-version: v0.55.0
           activate-environment: true
-      - run: cargo build --workspace
+      - run: cargo build --workspace --all-features --all-targets
+      - run: cargo test --workspace --all-features
+      - run: cargo clippy --workspace --all-features --all-targets -- -Dwarnings
