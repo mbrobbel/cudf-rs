@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+env:
+  SCCACHE_GHA_ENABLED: true
+  RUSTC_WRAPPER: sccache
+
 jobs:
   build:
     strategy:
@@ -19,6 +23,7 @@ jobs:
         with:
           pixi-version: v0.55.0
           activate-environment: true
+      - uses: mozilla-actions/sccache-action@v0.0.9
       - run: cargo build --workspace --all-features --all-targets
       - run: cargo test --workspace --all-features
       - run: cargo clippy --workspace --all-features --all-targets -- -Dwarnings
