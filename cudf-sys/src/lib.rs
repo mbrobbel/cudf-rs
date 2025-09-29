@@ -38,6 +38,8 @@ mod ffi {
 
 pub use ffi::*;
 
+pub mod rmm;
+
 pub mod column;
 pub mod table;
 

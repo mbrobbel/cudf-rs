@@ -5,10 +5,10 @@ fn main() {
     println!("cargo:rustc-link-lib=rmm");
     println!("cargo:rustc-link-lib=cudart");
 
-    let (bridge, cpp) = (
-        ["src/column.rs", "src/lib.rs", "src/table.rs"],
-        ["cpp/column.cpp", "cpp/lib.cpp", "cpp/table.cpp"],
-    );
+    let (bridge, cpp) = ["rmm/mod", "column", "lib", "table"]
+        .into_iter()
+        .map(|item| (format!("src/{item}.rs"), format!("cpp/{item}.cpp")))
+        .unzip::<_, _, Vec<_>, Vec<_>>();
 
     let prefix = std::path::PathBuf::from(env::var("CONDA_PREFIX").unwrap_or_default());
     cxx_build::bridges(bridge)
