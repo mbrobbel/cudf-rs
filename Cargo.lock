@@ -57,14 +57,14 @@ dependencies = [
 
 [[package]]
 name = "cudf"
-version = "0.0.0+25.08.00"
+version = "0.0.0+25.10.00"
 dependencies = [
  "cudf-sys",
 ]
 
 [[package]]
 name = "cudf-sys"
-version = "0.0.0+25.08.00"
+version = "0.0.0+25.10.00"
 dependencies = [
  "cxx",
  "cxx-build",

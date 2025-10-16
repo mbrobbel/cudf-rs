@@ -13,6 +13,7 @@ fn main() {
     let prefix = std::path::PathBuf::from(env::var("CONDA_PREFIX").unwrap_or_default());
     cxx_build::bridges(bridge)
         .include("include")
+        .include(prefix.join("include").join("rapids"))
         .include(prefix.join(format!(
             "targets/{}-linux/include",
             env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default()

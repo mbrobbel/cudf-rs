@@ -16,6 +16,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/c-compiler-1.11.0-h4d9bdce_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.8.3-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/conda-gcc-specs-14.3.0-hb991d5c_4.conda
+      - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-cccl-13.0.85-h6a26bb4_1.conda
       - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-cccl_linux-64-13.0.85-1.conda
       - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-crt-13.0.88-h3143f0f_0.conda
       - conda: https://conda.anaconda.org/nvidia/noarch/cuda-crt-dev_linux-64-13.0.88-0.conda
@@ -81,6 +82,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/c-compiler-1.11.0-hdceaead_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.8.3-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/conda-gcc-specs-14.3.0-h92dcf8a_4.conda
+      - conda: https://conda.anaconda.org/nvidia/linux-aarch64/cuda-cccl-13.0.85-h5707ece_1.conda
       - conda: https://conda.anaconda.org/nvidia/linux-aarch64/cuda-cccl_linux-aarch64-13.0.85-h119d96e_1.conda
       - conda: https://conda.anaconda.org/nvidia/linux-aarch64/cuda-crt-13.0.88-h6a7f861_100.conda
       - conda: https://conda.anaconda.org/nvidia/noarch/cuda-crt-dev_linux-aarch64-13.0.88-h119d96e_0.conda
@@ -298,6 +300,27 @@ packages:
   license_family: GPL
   size: 33167
   timestamp: 1753904180595
+- conda: https://conda.anaconda.org/nvidia/linux-64/cuda-cccl-13.0.85-h6a26bb4_1.conda
+  sha256: ffeee9adc5655825b8a7851acc6bade054b322f50e6ab460faa66fb1de6ca58c
+  md5: 2ac393f2967f7c46b51b836345a9e187
+  depends:
+  - cuda-cccl_linux-64 13.0.85
+  - cuda-version >=13.0,<13.1.0a0
+  license: LicenseRef-NVIDIA-End-User-License-Agreement
+  size: 18311
+  timestamp: 1755226932411
+- conda: https://conda.anaconda.org/nvidia/linux-aarch64/cuda-cccl-13.0.85-h5707ece_1.conda
+  sha256: 92e6743a50258477f25513424c119ef3c0ef717c9431a3960b6a53c920e5dd50
+  md5: bf9799203a9b3aa1b3021e9dd8ccdf65
+  depends:
+  - arm-variant * sbsa
+  - cuda-cccl_linux-aarch64 13.0.85
+  - cuda-version >=13.0,<13.1.0a0
+  constrains:
+  - arm-variant * sbsa
+  license: LicenseRef-NVIDIA-End-User-License-Agreement
+  size: 18352
+  timestamp: 1755227339632
 - conda: https://conda.anaconda.org/nvidia/linux-64/cuda-cccl_linux-64-13.0.85-1.conda
   sha256: 693bee3487a484e1d6cb3f7f994d5433df7a698e94116272dc04da25cc542a26
   md5: fa3fb6896ca529d1863301b831ccf985
