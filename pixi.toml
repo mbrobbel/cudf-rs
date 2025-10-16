@@ -4,11 +4,13 @@ channels = ["rapidsai", "nvidia", "conda-forge"]
 platforms = ["linux-64", "linux-aarch64"]
 
 [system-requirements]
-cuda = "12.9"
+cuda = "13"
 
 [dependencies]
-cuda-crt = "12.9.*"
-cuda-cudart-dev = "12.9.*"
+cuda-version = "13.*"
+cuda-cccl = "*"
+cuda-crt = "*"
+cuda-cudart-dev = "*"
 cxx-compiler = "*"
 libcudf = "25.10.00.*"
 libcurl = "*"
