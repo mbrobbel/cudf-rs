@@ -20,7 +20,7 @@ fn main() {
         )))
         .include(prefix.join("targets/sbsa-linux/include"))
         .files(cpp)
-        // https://github.com/rapidsai/rmm/blob/29dd32302eb7c3e16fb837a1cfe4baac98071512/cpp/CMakeLists.txt#L115
+        // https://github.com/rapidsai/rmm/blob/branch-25.10/cpp/CMakeLists.txt#L128
         .flag("-DLIBCUDACXX_ENABLE_EXPERIMENTAL_MEMORY_RESOURCE")
         .flag("-std=c++20")
         .compile("cudf-sys");
