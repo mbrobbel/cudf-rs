@@ -13,7 +13,7 @@ keywords.workspace = true
 categories.workspace = true
 
 [dependencies]
-cxx = "1.0.186"
+cxx = "1.0.188"
 
 [build-dependencies]
 cxx-build = "1.0.185"
